@@ -522,6 +522,10 @@ set(riscv32_SOURCES
   ${riscv_SOURCES})
 set(riscv64_SOURCES ${riscv_SOURCES})
 
+set(leros32_SOURCES
+  leros/mulsi3.c
+  ${GENERIC_SOURCES})
+
 set(wasm32_SOURCES
   ${GENERIC_TF_SOURCES}
   ${GENERIC_SOURCES})
