@@ -1,2 +1,6 @@
-build*
 *.user
+
+
+# Exclude build folders but allow build scripts to be prepended "build"
+build*
+!build*.sh
