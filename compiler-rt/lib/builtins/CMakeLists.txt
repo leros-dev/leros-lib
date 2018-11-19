@@ -62,7 +62,7 @@ set(GENERIC_SOURCES
   divsc3.c
   divsf3.c
   divsi3.c
-  divtc3.c
+  # divtc3.c      # MBP 19/11/2018: With -O1, yields an out of range branch offset 
   divti3.c
   divtf3.c
   extendsfdf2.c
@@ -94,7 +94,7 @@ set(GENERIC_SOURCES
   floatunsisf.c
   floatuntidf.c
   floatuntisf.c
-  int_util.c
+  # int_util.c    # MBP 19/11/2018: Not needed for now, but should be implemented when linux is a target 
   lshrdi3.c
   lshrti3.c
   moddi3.c
@@ -143,9 +143,9 @@ set(GENERIC_SOURCES
   ucmpdi2.c
   ucmpti2.c
   udivdi3.c
-  udivmoddi4.c
+  # udivmoddi4.c # MBP 19/11/2018: With -O1, yields an out of range branch offset 
   udivmodsi4.c
-  udivmodti4.c
+  # udivmodti4.c # MBP 19/11/2018: With -O1, yields an out of range branch offset 
   udivsi3.c
   udivti3.c
   umoddi3.c
@@ -210,7 +210,8 @@ endif ()
 if (NOT FUCHSIA)
   set(GENERIC_SOURCES
     ${GENERIC_SOURCES}
-    clear_cache.c)
+    # clear_cache.c # MBP 19/11/2018: Not needed for now, but should be implemented when linux is a target 
+    )
 endif()
 
 # These sources work on all x86 variants, but only x86 variants.
