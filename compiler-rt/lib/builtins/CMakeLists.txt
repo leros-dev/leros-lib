@@ -525,6 +525,13 @@ set(riscv64_SOURCES ${riscv_SOURCES})
 
 set(leros32_SOURCES
   leros/mulsi3.c
+  # The following files are _not_ part of the GCC Runtime library standard calls.
+  # so they should probably be moved to a separate runtime library which leros also links with½
+  # as to not pollute the compiler-rt library with incompatible functions.
+  leros/ugesi3.c
+  leros/ugtsi3.c
+  leros/ulesi3.c
+  leros/ultsi3.c
   ${GENERIC_SOURCES})
 
 set(wasm32_SOURCES
