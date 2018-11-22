@@ -32,5 +32,5 @@ void _start(){
     //     "jal r0\n");
 
     // Signal simulator to 
-    asm("scall");
+    asm("scall 0");
 }
