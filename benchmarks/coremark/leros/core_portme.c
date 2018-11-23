@@ -42,9 +42,9 @@ Original Author: Shay Gal-on
 */
 CORETIMETYPE barebones_clock() {
 	// Do scall 1 to set r4 = cycle count
-	asm("scall 1");
+	__asm__("scall 1");
 	// Return to caller
-	asm("jal r0");
+	__asm__("jal r0");
 }
 /* Define : TIMER_RES_DIVIDER
 	Divider to trade off timer resolution and total time that can be measured.
@@ -111,7 +111,6 @@ ee_u32 default_num_contexts=1;
 */
 void portable_init(core_portable *p, int *argc, char *argv[])
 {
-	#error "Call board initialization routines in portable init (if needed), in particular initialize UART!\n"
 	if (sizeof(ee_ptr_int) != sizeof(ee_u8 *)) {
 		ee_printf("ERROR! Please define ee_ptr_int to a type that holds a pointer!\n");
 	}

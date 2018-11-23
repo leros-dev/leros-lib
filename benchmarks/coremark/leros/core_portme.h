@@ -64,7 +64,7 @@ Original Author: Shay Gal-on
  #define COMPILER_VERSION "Leros Clang"
 #endif
 #ifndef COMPILER_FLAGS 
- #define COMPILER_FLAGS FLAGS_STR /* "Please put compiler flags here (e.g. -o3)" */
+ #define COMPILER_FLAGS "" /* "Please put compiler flags here (e.g. -o3)" */
 #endif
 #ifndef MEM_LOCATION 
  #define MEM_LOCATION "STACK"
@@ -189,5 +189,7 @@ void portable_fini(core_portable *p);
 #define VALIDATION_RUN 1
 #endif
 #endif
+
+int ee_printf(const char *fmt, ...);
 
 #endif /* CORE_PORTME_H */

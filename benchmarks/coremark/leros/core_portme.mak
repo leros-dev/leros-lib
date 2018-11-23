@@ -21,22 +21,22 @@
 OUTFLAG= -o
 # Flag : CC
 #	Use this flag to define compiler to use
-CC 		= gcc
+CC 		= ${LEROS_C_COMPILER}
 # Flag : LD
 #	Use this flag to define compiler to use
-LD		= gld
+LD		= ${LEROS_LINKER}
 # Flag : AS
 #	Use this flag to define compiler to use
-AS		= gas
+AS		= ${LEROS_ASM_COMPILER}
 # Flag : CFLAGS
 #	Use this flag to define compiler options. Note, you can add compiler options from the command line using XCFLAGS="other flags"
-PORT_CFLAGS = -O0 -g
+PORT_CFLAGS = -std=c11 -O1 -g -ffreestanding -DCLOCKS_PER_SEC=$(CLOCKS_PER_SECOND)
 FLAGS_STR = "$(PORT_CFLAGS) $(XCFLAGS) $(XLFLAGS) $(LFLAGS_END)"
 CFLAGS = $(PORT_CFLAGS) -I$(PORT_DIR) -I. -DFLAGS_STR=\"$(FLAGS_STR)\" 
 #Flag : LFLAGS_END
 #	Define any libraries needed for linking or other flags that should come at the end of the link line (e.g. linker scripts). 
 #	Note : On certain platforms, the default clock_gettime implementation is supported but requires linking of librt.
-SEPARATE_COMPILE=1
+# SEPARATE_COMPILE=1
 # Flag : SEPARATE_COMPILE
 # You must also define below how to create an object file, and how to link.
 OBJOUT 	= -o
