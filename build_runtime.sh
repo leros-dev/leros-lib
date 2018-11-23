@@ -1,7 +1,19 @@
-#!/bin/sh
+#!/bin/bash
+
+if [[ $# -eq 0 ]] ; then
+    echo 'Usage: build_runtime.sh $(path_to_leros-llvm_bin_dir)'
+    exit 1
+fi
+LLVM_BIN=$1 # directory containing LLVM binaries should be 1st argument to script
+
+# ============ crt0.leros.o ==============
+cd runtime
+${LLVM_BIN}/clang crt0.leros.c -c -ffreestanding -o crt0.leros.o
+cd ..
+
+# =========== compiler-rt ================
 
 BUILD_DIR="build-leros-compiler-rt-builtins"
-LLVM_BIN=$1 # directory containing LLVM binaries should be 1st argument to script
 
 # Create build directory
 rm -rf $BUILD_DIR
