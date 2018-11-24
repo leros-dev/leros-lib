@@ -62,7 +62,7 @@ set(GENERIC_SOURCES
   divsc3.c
   divsf3.c
   divsi3.c
-  # divtc3.c      # MBP 19/11/2018: With -O1, yields an out of range branch offset 
+  divtc3.c
   divti3.c
   divtf3.c
   extendsfdf2.c
@@ -143,9 +143,9 @@ set(GENERIC_SOURCES
   ucmpdi2.c
   ucmpti2.c
   udivdi3.c
-  # udivmoddi4.c # MBP 19/11/2018: With -O1, yields an out of range branch offset 
+  udivmoddi4.c
   udivmodsi4.c
-  # udivmodti4.c # MBP 19/11/2018: With -O1, yields an out of range branch offset 
+  udivmodti4.c
   udivsi3.c
   udivti3.c
   umoddi3.c
