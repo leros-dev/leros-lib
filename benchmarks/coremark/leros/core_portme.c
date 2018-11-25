@@ -40,11 +40,18 @@ Original Author: Shay Gal-on
 	e.g. Read value from on board RTC, read value from cpu clock cycles performance counter etc. 
 	Sample implementation for standard time.h and windows.h definitions included.
 */
-CORETIMETYPE barebones_clock() {
+
+// The leros assembly parser cannot yet handle variables, so we have to do some C trickery to 
+// ensure that r4 is returned
+void set_cyclecount(){
 	// Do scall 1 to set r4 = cycle count
-	__asm__("scall 1");
-	// Return to caller
-	__asm__("jal r0");
+	__asm__ __volatile__ ("scall 1");
+}
+
+CORETIMETYPE ghost_set_cyclecount() __attribute__ ((alias ("set_cyclecount")));
+
+CORETIMETYPE barebones_clock() {
+	return ghost_set_cyclecount();
 }
 /* Define : TIMER_RES_DIVIDER
 	Divider to trade off timer resolution and total time that can be measured.
@@ -111,6 +118,7 @@ ee_u32 default_num_contexts=1;
 */
 void portable_init(core_portable *p, int *argc, char *argv[])
 {
+	ee_printf("Portable initialization...\n");
 	if (sizeof(ee_ptr_int) != sizeof(ee_u8 *)) {
 		ee_printf("ERROR! Please define ee_ptr_int to a type that holds a pointer!\n");
 	}
