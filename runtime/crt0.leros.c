@@ -7,8 +7,8 @@ __attribute__((naked))
 void _start(){    
     // At some point we should initialize the C library here
 
-    // Stack initialization - for now we just initialize the stack pointer at 0x7fffffff
-    asm("loadi      -1\n"
+    // Stack initialization - for now we just initialize the stack pointer at 0x7ffffff0
+    asm("loadi      -16\n"
         "loadhi     -1\n"
         "loadh2i    -1\n"
         "loadh3i    127\n"
