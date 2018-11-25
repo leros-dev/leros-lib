@@ -20,4 +20,4 @@ ARGS="${ARGS} CLOCKS_PER_SECOND=131072"
 # Make coremark target leros
 ARGS="${ARGS} PORT_DIR=leros"
 
-make ${ARGS}
+make compile link ${ARGS}
