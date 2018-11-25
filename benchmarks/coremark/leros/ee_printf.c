@@ -559,7 +559,7 @@ repeat:
 }
 
 void uart_send_char(volatile char c) {
-  __asm__("scall 2");
+  __asm__ __volatile__ ("scall 2");
 }
 
 int ee_printf(const char *fmt, ...)
