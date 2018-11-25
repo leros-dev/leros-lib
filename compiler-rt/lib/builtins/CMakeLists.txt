@@ -62,7 +62,7 @@ set(GENERIC_SOURCES
   divsc3.c
   divsf3.c
   divsi3.c
-  divtc3.c
+  # divtc3.c
   divti3.c
   divtf3.c
   extendsfdf2.c
