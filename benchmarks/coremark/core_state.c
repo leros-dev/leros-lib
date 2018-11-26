@@ -161,7 +161,9 @@ void core_init_state(ee_u32 size, ee_s16 seed, ee_u8 *p) {
 		total++;
 	}
 #if CORE_DEBUG
-	ee_printf("State Input: %s\n",start);
+	// Something strange is happening in the compiler if we have a call as the last
+	// instruction... Shouldn't be compiled as a tail call though... Disable for now
+	// ee_printf("State Input: %s\n",start);
 #endif
 }
 
