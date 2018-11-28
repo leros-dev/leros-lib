@@ -42,7 +42,9 @@ Original Author: Shay Gal-on
 */
 
 // The leros assembly parser cannot yet handle variables, so we have to do some C trickery to 
-// ensure that r4 is returned
+// ensure that r4 barebones_clock() will be compiled as returning a value in R4,
+// even though set_cyclecount returns void. If this is not done, R4 will never be read
+// from the caller of barebones_clock
 void set_cyclecount(){
 	// Do scall 1 to set r4 = cycle count
 	__asm__ __volatile__ ("scall 1");
