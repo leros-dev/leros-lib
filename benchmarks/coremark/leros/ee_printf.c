@@ -559,6 +559,7 @@ repeat:
 }
 
 void uart_send_char(volatile char c) {
+  // 'scall 2' prints the value of r4 (interpreted as a character) to the simulator console window
   __asm__ __volatile__ ("scall 2");
 }
 
