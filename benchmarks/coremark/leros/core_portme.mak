@@ -30,7 +30,7 @@ LD		= ${LEROS_LINKER}
 AS		= ${LEROS_ASM_COMPILER}
 # Flag : CFLAGS
 #	Use this flag to define compiler options. Note, you can add compiler options from the command line using XCFLAGS="other flags"
-PORT_CFLAGS = -std=c11 -O1 -g -ffreestanding -DCLOCKS_PER_SEC=$(CLOCKS_PER_SECOND)
+PORT_CFLAGS = -std=c11 -O1 -g0 -ffreestanding -DCLOCKS_PER_SEC=$(CLOCKS_PER_SECOND)
 FLAGS_STR = "$(PORT_CFLAGS) $(XCFLAGS) $(XLFLAGS) $(LFLAGS_END)"
 CFLAGS = $(PORT_CFLAGS) -I$(PORT_DIR) -I. -DFLAGS_STR=\"$(FLAGS_STR)\" 
 #Flag : LFLAGS_END
