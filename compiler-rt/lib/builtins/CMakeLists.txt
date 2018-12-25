@@ -525,6 +525,9 @@ set(riscv64_SOURCES ${riscv_SOURCES})
 
 set(leros32_SOURCES
   leros/mulsi3.c
+  leros/ashlsi3.s
+  leros/ashrsi3.s
+  leros/lshrsi3.s
   ${GENERIC_SOURCES})
 
 set(wasm32_SOURCES

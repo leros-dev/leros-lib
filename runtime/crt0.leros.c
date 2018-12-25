@@ -44,7 +44,29 @@ void _start(){
         "loadi      0x0\n"
         "loadh2i    0xFF\n"
         "store      r107\n"
-        );
+        
+        "loadi      0xFF\n"
+        "loadh3i    0x7F\n"
+        "store      r108\n");
+
+    // Runtime function pointers
+    asm("loadi      __ashlsi3\n"
+        "loadhi     __ashlsi3\n"
+        "loadh2i    __ashlsi3\n"
+        "loadh3i    __ashlsi3\n"
+        "store      r120\n"
+
+        "loadi      __ashrsi3\n"
+        "loadhi     __ashrsi3\n"
+        "loadh2i    __ashrsi3\n"
+        "loadh3i    __ashrsi3\n"
+        "store      r121\n"
+
+        "loadi      __lshrsi3\n"
+        "loadhi     __lshrsi3\n"
+        "loadh2i    __lshrsi3\n"
+        "loadh3i    __lshrsi3\n"
+        "store      r122\n");
 
     // At some point we should initialize the C library here
 
