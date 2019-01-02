@@ -6,11 +6,9 @@ asm("	start:		");
 __attribute__((naked))
 void _start(){    
 
-    // Stack initialization - for now we just initialize the stack pointer at 0x7ffffff0
-    asm("loadi      -16\n"
-        "loadhi     -1\n"
-        "loadh2i    -1\n"
-        "loadh3i    127\n"
+    // Stack initialization - for now we just initialize the stack pointer at 0x7FFFFFF0
+    asm("loadi      0xF0\n"
+        "loadh3i    0x7F\n"
         "store      r1\n");
 
     // Constant register initialization
