@@ -3,12 +3,21 @@ asm("	.text		");
 asm("	.globl start	");
 asm("	start:		");
 
+#ifndef LEROS_STACK_PTR
+    #define LEROS_STACK_PTR 0x7FFFFFF0
+#endif
+
+#define STR(x) #x
+#define XSTR(s) STR(s)
+
 __attribute__((naked))
 void _start(){    
 
-    // Stack initialization - for now we just initialize the stack pointer at 0x7FFFFFF0
-    asm("loadi      0xF0\n"
-        "loadh3i    0x7F\n"
+    // Load stack pointer in register r1
+    asm("loadi      " XSTR(LEROS_STACK_PTR) "\n"
+        "loadhi     " XSTR(LEROS_STACK_PTR >> 8) "\n"
+        "loadh2i    " XSTR(LEROS_STACK_PTR >> 16) "\n"
+        "loadh3i    " XSTR(LEROS_STACK_PTR >> 24) "\n"
         "store      r1\n");
 
     // Constant register initialization
